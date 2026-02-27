@@ -1,6 +1,6 @@
 'use client'
 
-import {useRouter} from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import {
     Dialog,
@@ -46,9 +46,9 @@ export function Navbar() {
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <img
-                        alt=""
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                        className="h-8 w-auto"
+                            alt=""
+                            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                            className="h-8 w-auto"
                         />
                     </a>
                 </div>
@@ -76,28 +76,28 @@ export function Navbar() {
                             <div className="p-4">
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="#" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <a href="/" className="text-sm/6 font-semibold text-white">icono</a>
                                     </div>
                                     <div className="flex-auto">
-                                        <a href="#"className="block font-semibold text-white">Listado general</a>
+                                        <a href="/" className="block font-semibold text-white">Listado general</a>
                                         <p className="mt-1 text-gray-400">Ver locales y platos</p>
                                     </div>
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="#" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <a href="./../Locales" className="text-sm/6 font-semibold text-white">icono</a>
                                     </div>
                                     <div className="flex-auto">
-                                        <a href="#"className="block font-semibold text-white">Locales con filtrado</a>
+                                        <a href="./../Locales" className="block font-semibold text-white">Locales con filtrado</a>
                                         <p className="mt-1 text-gray-400">Buscar locales específicos</p>
                                     </div>
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="#" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <a href="./../Platos" className="text-sm/6 font-semibold text-white">icono</a>
                                     </div>
                                     <div className="flex-auto">
-                                        <a href="#"className="block font-semibold text-white">Platos con filtrado</a>
+                                        <a href="./../Platos" className="block font-semibold text-white">Platos con filtrado</a>
                                         <p className="mt-1 text-gray-400">Buscar platos específicos</p>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ export function Navbar() {
                                         <a href="#" className="text-sm/6 font-semibold text-white">icono</a>
                                     </div>
                                     <div className="flex-auto">
-                                        <a href="#"className="block font-semibold text-white">Locales</a>
+                                        <a href="#" className="block font-semibold text-white">Locales</a>
                                         <p className="mt-1 text-gray-400">Cargar nuevos locales</p>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@ export function Navbar() {
                                         <a href="#" className="text-sm/6 font-semibold text-white">icono</a>
                                     </div>
                                     <div className="flex-auto">
-                                        <a href="#"className="block font-semibold text-white">Platos</a>
+                                        <a href="#" className="block font-semibold text-white">Platos</a>
                                         <p className="mt-1 text-gray-400">Cargar nuevos platos</p>
                                     </div>
                                 </div>
@@ -179,66 +179,66 @@ export function Navbar() {
                             <div className="space-y-2 py-6">
                                 <Disclosure as="div" className="-mx-3">
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Listado
-                                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
-                                </DisclosureButton>
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                        Listado
+                                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
+                                    </DisclosureButton>
 
-                                <DisclosurePanel className="mt-2 space-y-2">
+                                    <DisclosurePanel className="mt-2 space-y-2">
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    General
-                                </DisclosureButton>
+                                        <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                            <a href="/" className="block font-semibold text-white">• Listado general</a>
+                                        </div>
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Locales
-                                </DisclosureButton>
+                                        <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                            <a href="./../Locales" className="block font-semibold text-white">• Locales</a>
+                                        </div>
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Platos
-                                </DisclosureButton>
+                                        <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                            <a href="./../Platos" className="block font-semibold text-white">• Platos</a>
+                                        </div>
 
-                                </DisclosurePanel>
+                                    </DisclosurePanel>
                                 </Disclosure>
 
                                 <Disclosure as="div" className="-mx-3">
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Cargar
-                                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
-                                </DisclosureButton>
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                        Cargar
+                                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
+                                    </DisclosureButton>
 
-                                <DisclosurePanel className="mt-2 space-y-2">
+                                    <DisclosurePanel className="mt-2 space-y-2">
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Locales
-                                </DisclosureButton>
+                                        <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                            Locales
+                                        </DisclosureButton>
 
-                                <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                                    Platos
-                                </DisclosureButton>
+                                        <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                                            Platos
+                                        </DisclosureButton>
 
-                                </DisclosurePanel>
+                                    </DisclosurePanel>
                                 </Disclosure>
                                 <a
-                                href="https://www.google.com/"
-                                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                                    href="https://www.google.com/"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                                 >
-                                Perfil
+                                    Perfil
                                 </a>
                             </div>
                             <div className="py-6">
                                 <a
-                                href="./../login"
-                                className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                    href="./../login"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
                                 >
-                                Login
+                                    Login
                                 </a>
                                 <a
-                                href="./../register"
-                                className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                                    href="./../register"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
                                 >
-                                Registrarse
+                                    Registrarse
                                 </a>
                             </div>
                         </div>
