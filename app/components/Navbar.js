@@ -1,6 +1,9 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import Image from 'next/image';
+import GralIcon from "./../images/icons/list-gral.png";
+import LocalesIcon from "./../images/icons/list-local.png";
+import PlatosIcon from "./../images/icons/list-plato.png";
 import { useState } from 'react'
 import {
     Dialog,
@@ -14,27 +17,10 @@ import {
     PopoverPanel,
 } from '@headlessui/react'
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-
-const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -76,7 +62,7 @@ export function Navbar() {
                             <div className="p-4">
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="/" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <Image src={GralIcon} alt='icono' />
                                     </div>
                                     <div className="flex-auto">
                                         <a href="/" className="block font-semibold text-white">Listado general</a>
@@ -85,7 +71,7 @@ export function Navbar() {
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="./../Locales" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <Image src={LocalesIcon} alt='icono' />
                                     </div>
                                     <div className="flex-auto">
                                         <a href="./../Locales" className="block font-semibold text-white">Locales con filtrado</a>
@@ -94,7 +80,7 @@ export function Navbar() {
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a href="./../Platos" className="text-sm/6 font-semibold text-white">icono</a>
+                                        <Image src={PlatosIcon} alt='icono' />
                                     </div>
                                     <div className="flex-auto">
                                         <a href="./../Platos" className="block font-semibold text-white">Platos con filtrado</a>

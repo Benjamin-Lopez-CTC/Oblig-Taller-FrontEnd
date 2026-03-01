@@ -1,4 +1,5 @@
 'use client'
+
 import { Navbar } from "./components/Navbar"
 import { LocalCard } from "./components/LocalesCard"
 import { PlatoCard } from "./components/PlatosCard"
@@ -32,11 +33,6 @@ export default function Home() {
         mostrarLocales();
         mostrarPlatos();
     }, [])
-
-
-    // const handleSubmit = () =>{
-    //     router.push("/login");
-    // }
 
     return (
         <>

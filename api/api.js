@@ -37,9 +37,21 @@ const traerLocales = async () => {
     return data;
 }
 
+// Mostrar Locales filtrados
+const getLocalesFiltrados = async (q="", type="", priceRange="", rating="", city="", zone="") => {
+    const data = await fetch(`${BaseURL}/api/locals?q=${q}&type=${type}&priceRange=${priceRange}&rating=${rating}&city=${city}&zone=${zone}`).then(res => res.json());
+    return data;
+}
+
 // Mostrar Platos
 const traerPlatos = async () => {
     const data = await fetch(`${BaseURL}/api/dishes`).then((res) => res.json());
+    return data;
+}
+
+// Mostrar Platos filtrados
+const getPlatosFiltrados = async (q="", category="", dateFrom="", dateTo="", city="", localId="") => {
+    const data = await fetch(`${BaseURL}/api/dishes?q=${q}&category=${category}&dateFrom=${dateFrom}&dateTo=${dateTo}&city=${city}&localId=${localId}`).then(res => res.json());
     return data;
 }
 
@@ -48,4 +60,6 @@ export {
     login,
     traerLocales,
     traerPlatos,
+    getLocalesFiltrados,
+    getPlatosFiltrados
 }
