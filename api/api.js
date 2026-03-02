@@ -75,6 +75,11 @@ const postLocal = async (name, type, priceRange, city, zone, address, hours, pho
     return data;
 }
 
+const perfilUsuario = async (id) => {
+    const res = await fetch(`${BaseURL}/api/users/${id}`)
+    const data = await res.json();
+    return data;
+}
 
 
 export {
@@ -84,5 +89,6 @@ export {
     traerPlatos,
     getLocalesFiltrados,
     getPlatosFiltrados,
-    postLocal
+    postLocal,
+    perfilUsuario
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 import Image from "next/image";
 import GralIcon from "./../images/icons/list-gral.png";
@@ -67,12 +68,12 @@ export function Navbar() {
                         <div className="p-4">
                             <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                 <div className="flex-auto">
-                                    <a
-                                        href="./../AltaLocal"
+                                    <Link 
+                                        href={`./../Perfil/${user.id}`}
                                         className="block font-semibold text-white"
                                     >
                                         Mi perfil
-                                    </a>
+                                    </Link>
                                     <p className="mt-1 text-gray-400">
                                         Informacion de mi cuenta
                                     </p>
@@ -130,16 +131,16 @@ export function Navbar() {
 
                     <DisclosurePanel className="mt-2 space-y-2">
                         <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                            <a
-                                href="./../AltaLocal"
-                                className="block ps-5 font-semibold text-white"
+                            <Link
+                                href={`./../Pefil/${user.id}`}
+                                className="block font-semibold text-white ps-5"
                             >
                                 Mi perfil
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                            <button                                
+                            <button
                                 className="block ps-5 font-semibold text-white"
                                 onClick={() => {
                                     localStorage.removeItem("user");
@@ -405,7 +406,7 @@ export function Navbar() {
                                                 Platos
                                             </a>
                                         </div>
-                                    </DisclosurePanel>                                
+                                    </DisclosurePanel>
                                 </Disclosure>
                                 {mostrarRegistroMobile()}
                             </div>
