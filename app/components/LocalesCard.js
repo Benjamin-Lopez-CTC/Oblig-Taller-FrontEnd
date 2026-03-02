@@ -3,7 +3,7 @@ export function LocalCard({ local }) {
         <>
             <div className="p-4 bg-mist-950 rounded-lg shadow max-w-80 border-1 border-emerald-700">
                 <img className="w-full h-48 object-cover rounded-md"
-                    src={local.photos ? local.photos[0] : "https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg"}
+                    src={local.photos && local.photos.length > 0 && local.photos[0].startsWith("https")? local.photos[0] : "https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg"}
                     alt={local.name} />
                 <div className="flex justify-between items-center">
                     <p className="text-white text-xl font-semibold">

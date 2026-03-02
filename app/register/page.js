@@ -2,7 +2,12 @@
 import { useState } from 'react';
 import { register } from '../../api/api';
 
+import { useRouter } from 'next/navigation';
+
 export default function Register() {
+
+    const router = useRouter();
+
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -20,7 +25,7 @@ export default function Register() {
         }
         else{
             setMensajeError("");
-            setMensaje("Registrado correctamente");
+            router.push('/');
         }
     }
 

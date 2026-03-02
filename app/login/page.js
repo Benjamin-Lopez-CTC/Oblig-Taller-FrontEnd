@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { login } from '../../api/api';
 
+import { useRouter } from 'next/navigation';
+
 export default function Login() {
 
     const [username, setUsername] = useState('');
@@ -9,6 +11,8 @@ export default function Login() {
 
     const [mensajeError, setMensajeError] = useState("");
     const [mensaje, setMensaje] = useState("");
+
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +24,7 @@ export default function Login() {
         }
         else {
             setMensajeError("");
-            setMensaje("Logueado correctamente");
+            router.push('/');
         }
     }
 

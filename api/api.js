@@ -28,6 +28,9 @@ const login = async (username, password) => {
 
     console.log("Informacion de login", data);
 
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
     return data;
 }
 
@@ -55,11 +58,31 @@ const getPlatosFiltrados = async (q="", category="", dateFrom="", dateTo="", cit
     return data;
 }
 
+// Alta de Locales
+const postLocal = async (name, type, priceRange, city, zone, address, hours, photos) => {
+    const res = await fetch(`${BaseURL}/api/locals`,{
+        method: "POST",
+        headers:{"Content-Type" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({name, type, priceRange, city, zone, address, hours, photos})
+    });
+
+    const data = await res.json();
+
+    console.log("Informacion del Local Creado", data);
+
+    return data;
+}
+
+
+
 export {
     register,
     login,
     traerLocales,
     traerPlatos,
     getLocalesFiltrados,
-    getPlatosFiltrados
+    getPlatosFiltrados,
+    postLocal
 }
