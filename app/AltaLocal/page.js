@@ -8,7 +8,6 @@ const AltaLocal = () => {
     return (
         <>
             <Navbar />
-            
             <AltaLocales />
         </>
     )

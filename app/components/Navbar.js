@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import GralIcon from "./../images/icons/list-gral.png";
@@ -26,6 +27,8 @@ export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const [user, setUser] = useState(null);
+
+    const router = useRouter();
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -87,6 +90,7 @@ export function Navbar() {
                                             localStorage.removeItem("user");
                                             setUser(null);
                                             alert("Sesión cerrada correctamente");
+                                            router.push("/");
                                         }}
                                     >
                                         Cerrar sesión
@@ -132,7 +136,7 @@ export function Navbar() {
                     <DisclosurePanel className="mt-2 space-y-2">
                         <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                             <Link
-                                href={`./../Pefil/${user.id}`}
+                                href={`./../Perfil/${user.id}`}
                                 className="block font-semibold text-white ps-5"
                             >
                                 Mi perfil
@@ -146,6 +150,7 @@ export function Navbar() {
                                     localStorage.removeItem("user");
                                     setUser(null);
                                     alert("Sesión cerrada correctamente");
+                                    router.push("/");
                                 }}
                             >
                                 Cerrar sesión
@@ -164,7 +169,7 @@ export function Navbar() {
                 className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
             >
                 <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <a href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <img
                             alt=""

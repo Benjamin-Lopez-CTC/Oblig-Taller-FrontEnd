@@ -1,6 +1,11 @@
-export const BusquedaLocales = ({setQuery , setType , setPriceRange , setRating , setCity , setZone}) => {
-
-    return( 
+export const BusquedaPlatos = ({
+    setQuery,
+    setCategory,
+    setDateFrom,
+    setDateTo,
+    setCity,
+}) => {
+    return (
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
                 <label
@@ -20,24 +25,24 @@ export const BusquedaLocales = ({setQuery , setType , setPriceRange , setRating 
             </div>
             <div>
                 <label
-                    htmlFor="type"
+                    htmlFor="category"
                     className="block text-sm/6 mb-2 font-semibold text-white"
                 >
-                    Tipo
+                    Categoria
                 </label>
                 <select
-                    id="type"
-                    name="type"
+                    id="category"
+                    name="category"
                     type="text"
-                    onChange={(e) => setType(e.target.value)}
+                    onChange={(e) => setCategory(e.target.value)}
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
                 >
                     <option value="">Todos</option>
-                    <option value="BAR">Bar</option>
-                    <option value="RESTAURANTE">Restaurante</option>
-                    <option value="CAFETERIA">Cafe</option>
-                    <option value="FOOD_TRUCK">Carrito</option>
+                    <option value="ENTRADA">Entrada</option>
+                    <option value="PRINCIPAL">Principal</option>
+                    <option value="POSTRE">Postre</option>
+                    <option value="BEBIDA">Bebida</option>
                     <option value="OTROS">Otros</option>
                 </select>
             </div>
@@ -59,65 +64,36 @@ export const BusquedaLocales = ({setQuery , setType , setPriceRange , setRating 
             </div>
             <div>
                 <label
-                    htmlFor="rating"
+                    htmlFor="fechaDesde"
                     className="block text-sm/6 mb-2 font-semibold text-white"
                 >
-                    Rating
-                </label>
-                <select
-                    id="rating"
-                    name="rating"
-                    type="text"
-                    placeholder="Rating"
-                    onChange={(e) => setRating(e.target.value)}
-                    autoComplete="given-name"
-                    className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
-                >
-                    <option value="">Todos</option>
-                    <option value="1">1 Estrella</option>
-                    <option value="2">2 Estrellas</option>
-                    <option value="3">3 Estrellas</option>
-                    <option value="4">4 Estrellas</option>
-                    <option value="5">5 Estrellas</option>
-                </select>
-            </div>
-            <div>
-                <label
-                    htmlFor="zone"
-                    className="block text-sm/6 mb-2 font-semibold text-white"
-                >
-                    Zona
+                    Fecha desde
                 </label>
                 <input
-                    id="zone"
-                    name="zone"
-                    type="text"
-                    onChange={(e) => setZone(e.target.value)}
+                    id="fechaDesde"
+                    name="fechaDesde"
+                    type="date"
+                    onChange={(e) => setDateFrom(e.target.value)}
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
                 />
             </div>
             <div>
                 <label
-                    htmlFor="priceRange"
+                    htmlFor="fechaHasta"
                     className="block text-sm/6 mb-2 font-semibold text-white"
                 >
-                    Rango de precio
+                    Fecha hasta
                 </label>
-                <select
-                    id="priceRange"
-                    name="priceRange"
-                    type="text"
-                    onChange={(e) => setPriceRange(e.target.value)}
+                <input
+                    id="fechaHasta"
+                    name="fechaHasta"
+                    type="date"
+                    onChange={(e) => setDateTo(e.target.value)}
                     autoComplete="given-name"
                     className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
-                >
-                    <option value="">Todos</option>
-                    <option value="ECONOMICO">Economico</option>
-                    <option value="MEDIO">Medio</option>
-                    <option value="ALTO">Alto</option>
-                </select>
+                />
             </div>
         </div>
-    )
-}
+    );
+};

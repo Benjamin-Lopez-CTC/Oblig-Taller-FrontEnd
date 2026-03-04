@@ -75,12 +75,39 @@ const postLocal = async (name, type, priceRange, city, zone, address, hours, pho
     return data;
 }
 
+// Detalles de local
+const getLocal = async (id) => {
+    const res = await fetch(`${BaseURL}/api/locals/${id}`);
+    const data = await res.json();
+    return data;
+}
+
+// Detalles de usuario
 const perfilUsuario = async (id) => {
     const res = await fetch(`${BaseURL}/api/users/${id}`)
     const data = await res.json();
     return data;
 }
 
+// Publicacion de reseña de local
+const postReview = async (id, rating, comment) => {
+    const res = await fetch(`${BaseURL}/api/locals/${id}/reviews`,{
+        method: "POST",
+        headers: {"Content-Type" : "application/json" ,
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({rating, comment})
+    });
+
+    console.log(res);
+
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        return null;
+    }
+};
 
 export {
     register,
@@ -90,5 +117,7 @@ export {
     getLocalesFiltrados,
     getPlatosFiltrados,
     postLocal,
-    perfilUsuario
+    getLocal,
+    perfilUsuario,
+    postReview
 }

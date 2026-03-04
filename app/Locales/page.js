@@ -40,12 +40,12 @@ export default function Locales() {
             {/* Barra de busqueda */}
 
             <div className="max-w-9xl mx-auto px-6 mt-10">
-                <h3 className="text-3xl md:text-3xl font-semibold text-gray-100 mb-8 border-b border-emerald-500 inline-block pb-2">
+                <h3 className="text-3xl md:text-3xl font-semibold text-gray-100 mb-5 border-b border-emerald-500 inline-block pb-2">
                     Filtros
                 </h3>
             </div>
 
-            <div className="mx-auto max-w-2xl mt-4 px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div className="mx-5 max-w-2xl my-4 px-4 sm:px-6  lg:max-w-4xl lg:px-8">
                 <BusquedaLocales setQuery={setQuery} setType={setType} setPriceRange={setPriceRange} setRating={setRating} setCity={setCity} setZone={setZone} />
             </div>
 

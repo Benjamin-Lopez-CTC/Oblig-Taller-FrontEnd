@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import {postLocal} from './../../api/api';
+import { useState } from "react";
+import { postLocal } from "./../../api/api";
 
 export const AltaLocales = () => {
-    const [name , setName] = useState("");
-    const [type , setType] = useState("");
-    const [priceRagne , setPriceRange] = useState("");
-    const [city , setCity] = useState("");
-    const [zone , setZone] = useState("");
-    const [address , setAddress] = useState("");
-    const [hours , setHours] = useState("");
-    const [photo , setPhoto] = useState("");
-    const [photos , setPhotos] = useState([]);
+    const [name, setName] = useState("");
+    const [type, setType] = useState("");
+    const [priceRange, setPriceRange] = useState("");
+    const [city, setCity] = useState("");
+    const [zone, setZone] = useState("");
+    const [address, setAddress] = useState("");
+    const [hours, setHours] = useState("");
+    const [photo, setPhoto] = useState("");
+    const [photos, setPhotos] = useState([]);
 
     const [campoObligatorioPH, setCampoObligatorioPH] = useState("");
     const [campoObligatorio, setCampoObligatorio] = useState("");
@@ -21,17 +21,42 @@ export const AltaLocales = () => {
         e.preventDefault();
         setPhotos([...photos, photo]);
         setPhoto("");
-    }
+    };
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await postLocal(name, type, priceRagne, city, zone, address, hours, photos);
+        const data = await postLocal(
+            name,
+            type,
+            priceRange,
+            city,
+            zone,
+            address,
+            hours,
+            photos,
+        );
 
-        if(data.error){
+        if (data.error) {
             setCampoObligatorioPH("Campo obligatorio");
             setCampoObligatorio("Campo obligatorio");
         }
-    }
+        else{
+            alert("Local dado de alta con exito");
+
+            setCampoObligatorioPH("");
+            setCampoObligatorio("");
+
+            setName("");
+            setType("");
+            setPriceRange("");
+            setCity("");
+            setZone("");
+            setAddress("");
+            setHours("");
+            setPhoto("");
+            setPhotos([]);
+        }
+    };
 
     return (
         <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
@@ -51,9 +76,7 @@ export const AltaLocales = () => {
                 <h2 className="text-4xl font-semibold tracking-tight text-balance text-emerald-100 sm:text-5xl">
                     Alta Locales
                 </h2>
-                <p className="mt-2 text-lg/8 text-gray-600">
-                    Ingresa tu local
-                </p>
+                <p className="mt-2 text-lg/8 text-gray-600">Ingresa tu local</p>
             </div>
             <form
                 action="#"
@@ -73,6 +96,7 @@ export const AltaLocales = () => {
                                 id="first-name"
                                 name="first-name"
                                 type="text"
+                                value={name}
                                 autoComplete="given-name"
                                 placeholder={campoObligatorioPH}
                                 onChange={(e) => setName(e.target.value)}
@@ -92,6 +116,7 @@ export const AltaLocales = () => {
                                 id="city"
                                 name="city"
                                 type="text"
+                                value={city}
                                 placeholder={campoObligatorioPH}
                                 onChange={(e) => setCity(e.target.value)}
                                 autoComplete="family-name"
@@ -111,6 +136,7 @@ export const AltaLocales = () => {
                                 id="zone"
                                 name="zone"
                                 type="text"
+                                value={zone}
                                 autoComplete="zone"
                                 onChange={(e) => setZone(e.target.value)}
                                 className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
@@ -130,6 +156,7 @@ export const AltaLocales = () => {
                                 id="address"
                                 name="address"
                                 type="text"
+                                value={address}
                                 autoComplete="organization"
                                 onChange={(e) => setAddress(e.target.value)}
                                 className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
@@ -148,46 +175,71 @@ export const AltaLocales = () => {
                                 id="hours"
                                 name="hours"
                                 type="text"
+                                value={hours}
                                 onChange={(e) => setHours(e.target.value)}
                                 autoComplete="hours"
                                 className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
                             />
                         </div>
                     </div>
-                    <select
-                        id="type"
-                        name="type"
-                        type="text"
-                        placeholder="Tipo"
-                        onChange={(e) => setType(e.target.value)}
-                        autoComplete="given-name"
-                        className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-mist-500 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
-                    >
-                        <option defaultValue={'default value'} disabled className='text-mist-500'>Tipo de local</option>
-                        <option value="BAR">Bar</option>
-                        <option value="RESTAURANTE">Restaurante</option>
-                        <option value="CAFETERIA">Cafe</option>
-                        <option value="FOOD_TRUCK">Carrito</option>
-                        <option value="OTROS">Otros</option>
-                    </select>
-                    {campoObligatorio && <p className='text-red-500 text-sm'>{campoObligatorio}</p>}
+                    <div>
+                        <label
+                            htmlFor="type"
+                            className="block text-sm/6 font-semibold text-white"
+                        >
+                            Tipo de Local
+                        </label>
+                        <select
+                            id="type"
+                            name="type"
+                            type="text"
+                            value={type}
+                            placeholder="Tipo"
+                            onChange={(e) => setType(e.target.value)}
+                            autoComplete="given-name"
+                            className="block w-full rounded-md bg-mist-700 px-3.5 mt-2.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-mist-500 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
+                        >
+                            <option value="BAR">Bar</option>
+                            <option value="RESTAURANTE">Restaurante</option>
+                            <option value="CAFETERIA">Cafe</option>
+                            <option value="FOOD_TRUCK">Carrito</option>
+                            <option value="OTROS">Otros</option>
+                        </select>
+                        {campoObligatorio && (
+                            <p className="text-red-500 text-sm">
+                                {campoObligatorio}
+                            </p>
+                        )}
+                    </div>
 
-                    <select
-                        id="priceRange"
-                        name="priceRange"
-                        type="text"
-                        placeholder="Rango de Precio"
-                        onChange={(e) => setPriceRange(e.target.value)}
-                        autoComplete="given-name"
-                        className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
-                    >
-                        <option value="" defaultValue={'default value'} className='text-mist-500' disabled>Rango de precio</option>
-                        <option value="ECONOMICO">Economico</option>
-                        <option value="MEDIO">Medio</option>
-                        <option value="ALTO">Alto</option>
-                    </select>
-                    {campoObligatorio && <p className='text-red-500 text-sm'>{campoObligatorio}</p>}
-                    
+                    <div>
+                        <label
+                            htmlFor="type"
+                            className="block text-sm/6 font-semibold text-white"
+                        >
+                            Rango de Precio
+                        </label>
+                        <select
+                            id="priceRange"
+                            name="priceRange"
+                            type="text"
+                            value={priceRange}
+                            placeholder="Rango de Precio"
+                            onChange={(e) => setPriceRange(e.target.value)}
+                            autoComplete="given-name"
+                            className="block w-full rounded-md bg-mist-700 px-3.5 py-2 mt-2.5 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
+                        >
+                            <option value="ECONOMICO">Economico</option>
+                            <option value="MEDIO">Medio</option>
+                            <option value="ALTO">Alto</option>
+                        </select>
+                        {campoObligatorio && (
+                            <p className="text-red-500 text-sm">
+                                {campoObligatorio}
+                            </p>
+                        )}
+                    </div>
+
                     <div className="sm:col-span-2">
                         <label
                             htmlFor="photo"
@@ -200,9 +252,11 @@ export const AltaLocales = () => {
                                 id="photo"
                                 name="photo"
                                 type="text"
+                                value={photo}
+                                placeholder="URL"
                                 onChange={(e) => setPhoto(e.target.value)}
                                 className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
-                                defaultValue={""}
+                                // defaultValue={""}
                             />
                         </div>
                     </div>
@@ -213,8 +267,8 @@ export const AltaLocales = () => {
                         Subir Foto
                     </button>
                 </div>
-                {photos.map((photo) => (
-                    <p key={photo}>{photo}</p>
+                {photos.map((photo, index) => (
+                    <p key={index}>{photo}</p>
                 ))}
 
                 <div className="mt-10">
@@ -229,4 +283,4 @@ export const AltaLocales = () => {
             </form>
         </div>
     );
-}
+};
