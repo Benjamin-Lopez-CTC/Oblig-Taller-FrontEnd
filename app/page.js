@@ -1,10 +1,11 @@
-'use client'
+'use client';
 
-import { Navbar } from "./components/Navbar"
-import { LocalCard } from "./components/LocalesCard"
-import { PlatoCard } from "./components/PlatosCard"
+import { Navbar } from "./components/Navbar";
+import { LocalCard } from "./components/LocalesCard";
+import { PlatoCard } from "./components/PlatosCard";
+import { Footer } from "./components/Footer";
 
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { traerLocales } from "./../api/api";
@@ -79,6 +80,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

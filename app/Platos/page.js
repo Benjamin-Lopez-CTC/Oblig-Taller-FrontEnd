@@ -1,6 +1,7 @@
 "use client";
 import { Navbar } from "./../components/Navbar";
 import { PlatoCard } from "./../components/PlatosCard";
+import { Footer } from "./../components/Footer";
 
 import { useEffect, useState } from "react";
 
@@ -71,6 +72,8 @@ export default function Platos() {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 }

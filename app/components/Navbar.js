@@ -7,7 +7,12 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import GralIcon from "./../images/icons/list-gral.png";
 import LocalesIcon from "./../images/icons/list-local.png";
+import LocalAltaIcono from "./../images/icons/LocalAltaIcono.png";
 import PlatosIcon from "./../images/icons/list-plato.png";
+import PlatoAltaIcono from "./../images/icons/PlatoAltaIcono.png";
+import NavIcon from "./../images/icons/Rutas.png";
+import Perfil from "./../images/icons/Perfil.png";
+import Logout from "./../images/icons/Logout.png";
 import { useState } from "react";
 import {
     Dialog,
@@ -70,8 +75,11 @@ export function Navbar() {
                     >
                         <div className="p-4">
                             <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
+                                <div className="flex size-11 flex-none items-center justify-center rounded-lg">
+                                    <Image src={Perfil} alt="icono" />
+                                </div>
                                 <div className="flex-auto">
-                                    <Link 
+                                    <Link
                                         href={`./../Perfil/${user.id}`}
                                         className="block font-semibold text-white"
                                     >
@@ -83,13 +91,18 @@ export function Navbar() {
                                 </div>
                             </div>
                             <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
+                                <div className="flex size-11 flex-none items-center justify-center rounded-lg">
+                                    <Image src={Logout} alt="icono" />
+                                </div>
                                 <div className="flex-auto">
                                     <button
                                         className="block font-semibold text-white"
                                         onClick={() => {
                                             localStorage.removeItem("user");
                                             setUser(null);
-                                            alert("Sesión cerrada correctamente");
+                                            alert(
+                                                "Sesión cerrada correctamente",
+                                            );
                                             router.push("/");
                                         }}
                                     >
@@ -169,12 +182,12 @@ export function Navbar() {
                 className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
             >
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img
-                            alt=""
-                            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                            className="h-8 w-auto"
+                    <a href="/" className="-m-2.5 p-0.5">
+                        <span className="sr-only">Rutas Del Sabor</span>
+                        <Image
+                            src={NavIcon}
+                            alt="icono"
+                            className="h-10 w-auto"
                         />
                     </a>
                 </div>
@@ -204,7 +217,7 @@ export function Navbar() {
                         >
                             <div className="p-4">
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
-                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
+                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
                                         <Image src={GralIcon} alt="icono" />
                                     </div>
                                     <div className="flex-auto">
@@ -220,7 +233,7 @@ export function Navbar() {
                                     </div>
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
-                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
+                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
                                         <Image src={LocalesIcon} alt="icono" />
                                     </div>
                                     <div className="flex-auto">
@@ -236,7 +249,7 @@ export function Navbar() {
                                     </div>
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
-                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
+                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
                                         <Image src={PlatosIcon} alt="icono" />
                                     </div>
                                     <div className="flex-auto">
@@ -270,13 +283,8 @@ export function Navbar() {
                         >
                             <div className="p-4">
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
-                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a
-                                            href="#"
-                                            className="text-sm/6 font-semibold text-white"
-                                        >
-                                            icono
-                                        </a>
+                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
+                                        <Image src={LocalAltaIcono} alt="icono" />
                                     </div>
                                     <div className="flex-auto">
                                         <a
@@ -291,13 +299,8 @@ export function Navbar() {
                                     </div>
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
-                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-700/50 group-hover:bg-gray-700">
-                                        <a
-                                            href="#"
-                                            className="text-sm/6 font-semibold text-white"
-                                        >
-                                            icono
-                                        </a>
+                                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
+                                        <Image src={PlatoAltaIcono} alt="icono" />
                                     </div>
                                     <div className="flex-auto">
                                         <a

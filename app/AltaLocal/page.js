@@ -1,7 +1,8 @@
 'use client'
 
-import { Navbar } from "../components/Navbar.js"
-import { AltaLocales } from "../components/AltaLocales.js";
+import { Navbar } from "./../components/Navbar"
+import { AltaLocales } from "./../components/AltaLocales";
+import { Footer } from "./../components/Footer";
 
 const AltaLocal = () => {
 
@@ -9,6 +10,7 @@ const AltaLocal = () => {
         <>
             <Navbar />
             <AltaLocales />
+            <Footer />
         </>
     )
 }

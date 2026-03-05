@@ -1,6 +1,7 @@
 'use client'
 import { Navbar } from "./../components/Navbar"
 import { LocalCard } from "./../components/LocalesCard"
+import { Footer } from "./../components/Footer";
 
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
@@ -67,6 +68,8 @@ export default function Locales() {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 }

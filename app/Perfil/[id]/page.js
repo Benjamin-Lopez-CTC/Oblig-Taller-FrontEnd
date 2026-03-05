@@ -3,6 +3,7 @@
 import { Navbar } from "../../components/Navbar";
 import { RestaurantCard } from "./../../components/CartaLocalPerfil";
 import { DishCard } from "./../../components/CartaPlatoPerfil";
+import { Footer } from "./../../components/Footer";
 
 import { perfilUsuario } from "../../../api/api";
 
@@ -91,6 +92,7 @@ export default function Perfil() {
                     </div>
                 </div>
             </main>
+            <Footer/>
         </>
     );
 }
