@@ -1,6 +1,10 @@
-export function RestaurantCard({ name, location, price, image }) {
+import Link from "next/link";
+
+export function RestaurantCard({ name, location, price, localId, image }) {
     return (
+        <Link href={`/VerLocal/${localId}`}>
         <article className="group cursor-pointer">
+
             <div className="relative bg-card-dark rounded-2xl overflow-hidden border 2 border-emerald-700 hover:border-emerald-500/50 transition-colors duration-300">
                 <div className="relative aspect-[4/3] overflow-hidden bg-gray-800">
                     <div
@@ -22,5 +26,6 @@ export function RestaurantCard({ name, location, price, image }) {
                 </div>
             </div>
         </article>
+        </Link>
     );
 }

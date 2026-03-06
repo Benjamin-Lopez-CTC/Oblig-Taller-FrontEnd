@@ -25,6 +25,7 @@ export default function Register() {
         }
         else{
             setMensajeError("");
+            alert("Usuario registrado con éxito");
             router.push('/');
         }
     }

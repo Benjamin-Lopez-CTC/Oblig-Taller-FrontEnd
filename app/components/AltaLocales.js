@@ -203,11 +203,8 @@ export const AltaLocales = () => {
                         <select
                             id="type"
                             name="type"
-                            type="text"
                             value={type}
-                            placeholder="Tipo"
                             onChange={(e) => setType(e.target.value)}
-                            autoComplete="given-name"
                             className="block w-full rounded-md bg-mist-700 px-3.5 mt-2.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-mist-500 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
                         >
                             <option value="BAR">Bar</option>
@@ -233,11 +230,8 @@ export const AltaLocales = () => {
                         <select
                             id="priceRange"
                             name="priceRange"
-                            type="text"
                             value={priceRange}
-                            placeholder="Rango de Precio"
                             onChange={(e) => setPriceRange(e.target.value)}
-                            autoComplete="given-name"
                             className="block w-full rounded-md bg-mist-700 px-3.5 py-2 mt-2.5 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600"
                         >
                             <option value="ECONOMICO">Economico</option>

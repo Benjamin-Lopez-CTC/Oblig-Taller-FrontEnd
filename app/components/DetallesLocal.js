@@ -15,18 +15,33 @@ const DetallesLocal = () => {
 
     const features = [
         {
-            name: "Ciudad",
+            name: "Ciudad:",
             description: local.city,
             icon: ArrowRightIcon,
         },
         {
-            name: "Zona",
+            name: "Tipo:",
+            description: local.type,
+            icon: ArrowRightIcon,
+        },
+        {
+            name: "Rango de precio:",
+            description: local.priceRange,
+            icon: ArrowRightIcon,
+        },
+        {
+            name: "Zona:",
             description: local.zone,
             icon: ArrowRightIcon,
         },
         {
-            name: "Direccion",
+            name: "Direccion:",
             description: local.address,
+            icon: ArrowRightIcon,
+        },
+        {
+            name: "Horario:",
+            description: local.hours,
             icon: ArrowRightIcon,
         },
     ];
@@ -89,8 +104,8 @@ const DetallesLocal = () => {
                             alt="Foto Del Local"
                             src={
                                 local.photos &&
-                                local.photos.length > 0 &&
-                                local.photos[0].startsWith("https")
+                                    local.photos.length > 0 &&
+                                    local.photos[0].startsWith("https")
                                     ? local.photos[0]
                                     : "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
                             }
@@ -102,6 +117,7 @@ const DetallesLocal = () => {
                 </div>
             </div>
 
+            {/* Rating */}
             <RatingLocal
                 id={local.id}
                 name={local.name}
@@ -121,7 +137,7 @@ const DetallesLocal = () => {
                             <div className="flex items-center gap-x-6 mb-10">
                                 <img
                                     alt="imagen de usuario"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFv_rUJ2Ru3GR0Jxy2YTNH_jrVzX3_HY-THQ&s"
+                                    src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg"
                                     className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
                                 />
                                 <div>

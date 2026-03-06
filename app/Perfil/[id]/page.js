@@ -4,6 +4,7 @@ import { Navbar } from "../../components/Navbar";
 import { RestaurantCard } from "./../../components/CartaLocalPerfil";
 import { DishCard } from "./../../components/CartaPlatoPerfil";
 import { Footer } from "./../../components/Footer";
+import { useRouter } from "next/navigation";
 
 import { perfilUsuario } from "../../../api/api";
 
@@ -29,6 +30,16 @@ export default function Perfil() {
         traerUsuario();
     }, []);
 
+        const router = useRouter();
+    
+        useEffect(() => {
+            const userLS = JSON.parse(localStorage.getItem("user"));
+    
+            if (!userLS) {
+                router.replace("/login");
+            }
+        }, []);
+
     return (
         <>
             <Navbar />
@@ -53,6 +64,7 @@ export default function Perfil() {
                                     name={local.name}
                                     location={local.city}
                                     price={local.priceRange}
+                                    localId={local.id}
                                     image={
                                         local.photos &&
                                         local.photos.length > 0 &&

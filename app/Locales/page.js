@@ -3,7 +3,6 @@ import { Navbar } from "./../components/Navbar"
 import { LocalCard } from "./../components/LocalesCard"
 import { Footer } from "./../components/Footer";
 
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
 
 import { getLocalesFiltrados } from "./../../api/api";
@@ -11,7 +10,6 @@ import { BusquedaLocales } from "./../components/BusquedaLocales";
 
 export default function Locales() {
     
-    const router = useRouter();
 
     const [locales, setLocales] = useState([]);
 

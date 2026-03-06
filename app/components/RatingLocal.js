@@ -4,6 +4,7 @@ import { postReview } from "./../../api/api";
 export default function RatingLocal({ id, name, setRefresh }) {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
+
     const [hover, setHover] = useState(0);
     const [submitted, setSubmitted] = useState(false);
 

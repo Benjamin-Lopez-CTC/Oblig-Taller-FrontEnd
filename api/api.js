@@ -75,6 +75,23 @@ const postLocal = async (name, type, priceRange, city, zone, address, hours, pho
     return data;
 }
 
+// Alta de Platos
+const postPlato = async (name, category, localId, city, price, description) => {
+    const res = await fetch(`${BaseURL}/api/dishes`,{
+        method: "POST",
+        headers:{"Content-Type" : "application/json",
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({name, category, localId, city, price, description})
+    });
+
+    const data = await res.json();
+
+    console.log("Informacion del Plato Creado", data);
+
+    return data;
+}
+
 // Detalles de local
 const getLocal = async (id) => {
     const res = await fetch(`${BaseURL}/api/locals/${id}`);
@@ -117,6 +134,7 @@ export {
     getLocalesFiltrados,
     getPlatosFiltrados,
     postLocal,
+    postPlato,
     getLocal,
     perfilUsuario,
     postReview
