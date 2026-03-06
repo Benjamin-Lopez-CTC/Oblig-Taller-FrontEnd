@@ -99,6 +99,7 @@ export function Navbar() {
                                         className="block font-semibold text-white"
                                         onClick={() => {
                                             localStorage.removeItem("user");
+                                            localStorage.removeItem("token");
                                             setUser(null);
                                             alert(
                                                 "Sesión cerrada correctamente",
@@ -161,6 +162,7 @@ export function Navbar() {
                                 className="block ps-5 font-semibold text-white"
                                 onClick={() => {
                                     localStorage.removeItem("user");
+                                    localStorage.removeItem("token");
                                     setUser(null);
                                     alert("Sesión cerrada correctamente");
                                     router.push("/");
@@ -288,7 +290,7 @@ export function Navbar() {
                                     </div>
                                     <div className="flex-auto">
                                         <a
-                                            href="./../AltaLocal"
+                                            href="/AltaLocal"
                                             className="block font-semibold text-white"
                                         >
                                             Locales
@@ -304,7 +306,7 @@ export function Navbar() {
                                     </div>
                                     <div className="flex-auto">
                                         <a
-                                            href="#"
+                                            href="/AltaPlato"
                                             className="block font-semibold text-white"
                                         >
                                             Platos
@@ -399,7 +401,7 @@ export function Navbar() {
                                     <DisclosurePanel className="mt-2 space-y-2">
                                         <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                                             <a
-                                                href="./../AltaLocal"
+                                                href="/AltaLocal"
                                                 className="block ps-5 font-semibold text-white"
                                             >
                                                 Locales
@@ -408,7 +410,7 @@ export function Navbar() {
 
                                         <div className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                                             <a
-                                                href="./../AltaPlato"
+                                                href="/AltaPlato"
                                                 className="block ps-5 font-semibold text-white"
                                             >
                                                 Platos

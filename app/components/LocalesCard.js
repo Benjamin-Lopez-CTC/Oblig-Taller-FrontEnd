@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 
 export function LocalCard({ local }) {
+
     return (
         <>
             <div className="p-4 bg-mist-950 rounded-lg shadow max-w-80 border-1 border-emerald-700">

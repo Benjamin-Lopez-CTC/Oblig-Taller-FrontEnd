@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { postLocal } from "./../../api/api";
+import { useRouter } from "next/navigation";
 
 export const AltaLocales = () => {
     const [name, setName] = useState("");
@@ -16,6 +17,16 @@ export const AltaLocales = () => {
 
     const [campoObligatorioPH, setCampoObligatorioPH] = useState("");
     const [campoObligatorio, setCampoObligatorio] = useState("");
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (!user) {
+            router.replace("/login");
+        }
+    }, []);
 
     const handleClick = (e) => {
         e.preventDefault();
