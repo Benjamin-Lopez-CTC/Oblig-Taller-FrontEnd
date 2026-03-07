@@ -1,3 +1,6 @@
+'use client';
+import Link from "next/link";
+
 export function PlatoCard({ plato }) {
     return (
         <>
@@ -16,9 +19,11 @@ export function PlatoCard({ plato }) {
                 <p className="text-white font-semibold text-sm mb-3">{plato.description}</p>
                 <p className="text-gray-200 mb-3">{plato.price ? "$" + plato.price : "Precio Desconocido"}</p>
                 <button className="group px-8 py-2.5 bg-emerald-500 rounded-lg text-white cursor-pointer active:scale-95 transition duration-300 hover:bg-emerald-700">
+                    <Link href={`VerPlato/${plato.id}`}>
                     <p className="relative h-6 overflow-hidden">
                         <span>Detalles</span>
                     </p>
+                    </Link>
                 </button>
             </div>
         </>

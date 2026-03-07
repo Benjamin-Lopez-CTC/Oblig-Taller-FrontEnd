@@ -91,6 +91,7 @@ export default function Perfil() {
                                     name={dish.name}
                                     category={dish.category}
                                     price={dish.price}
+                                    platoId={dish.id}
                                     image={
                                         dish.photos &&
                                         dish.photos.length > 0 &&

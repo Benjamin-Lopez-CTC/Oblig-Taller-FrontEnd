@@ -95,8 +95,25 @@ const postPlato = async (name, category, localId, city, price, description) => {
 // Detalles de local
 const getLocal = async (id) => {
     const res = await fetch(`${BaseURL}/api/locals/${id}`);
-    const data = await res.json();
-    return data;
+    
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        return null;
+    }
+}
+
+// Detalles de plato
+const getPlato = async (id) => {
+    const res = await fetch(`${BaseURL}/api/dishes/${id}`);
+    
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        return null;
+    }
 }
 
 // Detalles de usuario
@@ -107,8 +124,28 @@ const perfilUsuario = async (id) => {
 }
 
 // Publicacion de reseña de local
-const postReview = async (id, rating, comment) => {
+const postReviewLocal = async (id, rating, comment) => {
     const res = await fetch(`${BaseURL}/api/locals/${id}/reviews`,{
+        method: "POST",
+        headers: {"Content-Type" : "application/json" ,
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({rating, comment})
+    });
+
+    console.log(res);
+
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        return null;
+    }
+};
+
+// Publicacion de reseña de plato
+const postReviewPlato = async (id, rating, comment) => {
+    const res = await fetch(`${BaseURL}/api/dishes/${id}/reviews`, {
         method: "POST",
         headers: {"Content-Type" : "application/json" ,
             "Authorization" : `Bearer ${localStorage.getItem("token")}`
@@ -136,6 +173,8 @@ export {
     postLocal,
     postPlato,
     getLocal,
+    getPlato,
     perfilUsuario,
-    postReview
+    postReviewLocal,
+    postReviewPlato
 }

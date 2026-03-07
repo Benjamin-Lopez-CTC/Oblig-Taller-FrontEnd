@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { postReviewLocal } from "./../../api/api";
+import { postReviewPlato } from "./../../api/api";
 
-export default function RatingLocal({ id, name, setRefresh }) {
+export default function RatingPlato({ id, name, setRefresh }) {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
 
@@ -18,10 +18,10 @@ export default function RatingLocal({ id, name, setRefresh }) {
 
     const handleSubmit = async () => {
         if (rating > 0) {
-            await postReviewLocal(id, rating, comment);
+            await postReviewPlato(id, rating, comment);
 
             setSubmitted(true);
-            setRefresh(true)
+            setRefresh(true);
         }
     };
 
@@ -30,7 +30,7 @@ export default function RatingLocal({ id, name, setRefresh }) {
             <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm text-center">
                 <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
                 <p className="text-gray-400 text-sm mb-6">
-                    ¿Cómo fue tu experiencia?
+                    ¿Que te pareció la comida?
                 </p>
 
                 {!submitted ? (
