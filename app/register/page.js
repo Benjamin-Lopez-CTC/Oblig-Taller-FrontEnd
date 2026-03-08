@@ -1,16 +1,15 @@
-'use client'
-import { useState } from 'react';
-import { register } from '../../api/api';
+"use client";
+import { useState } from "react";
+import { register } from "../../api/api";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function Register() {
-
     const router = useRouter();
 
-    const [username, setUsername] = useState('');
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
 
     const [mensajeError, setMensajeError] = useState("");
     const [mensaje, setMensaje] = useState("");
@@ -22,15 +21,12 @@ export default function Register() {
         if (data.error) {
             setMensaje("");
             setMensajeError(data.error);
-        }
-        else{
+        } else {
             setMensajeError("");
             alert("Usuario registrado con éxito");
-            router.push('/');
+            router.push("/");
         }
-    }
-
-
+    };
 
     return (
         <>
@@ -61,7 +57,9 @@ export default function Register() {
                                     name="Username"
                                     type="text"
                                     value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
                                     autoComplete="username"
                                     className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-700 sm:text-sm/6"
                                 />
@@ -105,7 +103,9 @@ export default function Register() {
                                     name="Password"
                                     type="password"
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
                                     autoComplete="new-password"
                                     className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-700 sm:text-sm/6"
                                 />

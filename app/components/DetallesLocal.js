@@ -104,8 +104,8 @@ const DetallesLocal = () => {
                             alt="Foto Del Local"
                             src={
                                 local.photos &&
-                                    local.photos.length > 0 &&
-                                    local.photos[0].startsWith("https")
+                                local.photos.length > 0 &&
+                                local.photos[0].startsWith("https")
                                     ? local.photos[0]
                                     : "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
                             }
@@ -141,7 +141,6 @@ const DetallesLocal = () => {
                                     className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
                                 />
                                 <div>
-                                    {/* <h3 className="text-base/7 font-semibold tracking-tight text-gray-900">{review.rating}</h3> */}
                                     <Rating value={review.rating} readonly />
                                     <p className="text-sm/6 font-semibold text-emerald-500">
                                         {review.comment}

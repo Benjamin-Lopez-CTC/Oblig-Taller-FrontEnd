@@ -5,9 +5,7 @@ export function Footer() {
                 <div className="text-center">
                     <p>
                         Copyright © 2026 -
-                        <a
-                            className="font-semibold"
-                        >
+                        <a className="font-semibold">
                             Benjamín López & Felipe Alvarez
                         </a>
                     </p>

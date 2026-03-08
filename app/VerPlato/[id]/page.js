@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Navbar } from "./../../components/Navbar";
 import DetallesPlato from "./../../components/DetallesPlato";
@@ -8,9 +8,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const VerPlato = () => {
-
     const router = useRouter();
-    
+
     useEffect(() => {
         const userLS = JSON.parse(localStorage.getItem("user"));
 
@@ -21,11 +20,11 @@ const VerPlato = () => {
 
     return (
         <>
-            <Navbar/>
-            <DetallesPlato/>
-            <Footer/>
+            <Navbar />
+            <DetallesPlato />
+            <Footer />
         </>
-    )
-}
+    );
+};
 
 export default VerPlato;

@@ -1,33 +1,28 @@
-'use client'
-import { useState } from 'react';
-import { login } from '../../api/api';
+"use client";
+import { useState } from "react";
+import { login } from "../../api/api";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function Login() {
-
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const [mensajeError, setMensajeError] = useState("");
-    const [mensaje, setMensaje] = useState("");
 
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const data = await login(username, password);
 
         if (data.error) {
-            setMensaje("");
             setMensajeError(data.error);
+        } else {
+            router.push("/");
         }
-        else {
-            setMensajeError("");
-            router.push('/');
-        }
-    }
-
+    };
 
     return (
         <>
@@ -38,7 +33,7 @@ export default function Login() {
                     </h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form action="#" method="POST" className="space-y-6">
+                    <div className="space-y-6">
                         <div>
                             <label
                                 htmlFor="Username"
@@ -49,7 +44,7 @@ export default function Login() {
                             <div className="mt-2">
                                 <input
                                     id="Username"
-                                    name="Username"
+                                    name="username"
                                     type="text"
                                     value={username}
                                     onChange={(e) =>
@@ -73,7 +68,7 @@ export default function Login() {
                             <div className="mt-2">
                                 <input
                                     id="Password"
-                                    name="Password"
+                                    name="password"
                                     type="password"
                                     value={password}
                                     onChange={(e) =>
@@ -84,6 +79,9 @@ export default function Login() {
                                 />
                             </div>
                         </div>
+                        <p className="mt-4 text-red-400 font-medium">
+                            {mensajeError && mensajeError}
+                        </p>
 
                         <p className="mt-2 text-center text-sm/6 text-gray-400">
                             ¿No tienes una cuenta?{" "}
@@ -94,23 +92,16 @@ export default function Login() {
                                 Regístrate
                             </a>
                         </p>
-
-                        <p className="mt-4 text-red-400 font-medium">
-                            {mensajeError && mensajeError}
-                        </p>
-                        <p className="mt-4 text-green-400 font-medium">
-                            {mensaje && mensaje}
-                        </p>
                         <div>
                             <button
-                                type="submit"
+                                type="button"
                                 onClick={handleSubmit}
                                 className="flex w-full justify-center group px-8 py-2.5 bg-emerald-500 rounded-lg text-white cursor-pointer active:scale-95 transition duration-300 hover:bg-emerald-700"
                             >
                                 Login
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </>

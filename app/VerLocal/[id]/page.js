@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Navbar } from "./../../components/Navbar";
 import DetallesLocal from "./../../components/DetallesLocal";
@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const VerLocal = () => {
-
     const router = useRouter();
 
     useEffect(() => {
@@ -25,7 +24,7 @@ const VerLocal = () => {
             <DetallesLocal />
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default VerLocal;

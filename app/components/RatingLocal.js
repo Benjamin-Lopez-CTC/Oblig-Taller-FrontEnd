@@ -21,7 +21,7 @@ export default function RatingLocal({ id, name, setRefresh }) {
             await postReviewLocal(id, rating, comment);
 
             setSubmitted(true);
-            setRefresh(true)
+            setRefresh(true);
         }
     };
 

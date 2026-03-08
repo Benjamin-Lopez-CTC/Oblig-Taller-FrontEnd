@@ -2,7 +2,6 @@
 import Link from "next/link";
 
 export function LocalCard({ local }) {
-
     return (
         <>
             <div className="p-4 bg-mist-950 rounded-lg shadow max-w-80 border-1 border-emerald-700">
@@ -17,6 +16,7 @@ export function LocalCard({ local }) {
                     }
                     alt={local.name}
                 />
+
                 <div className="flex justify-between items-center">
                     <p className="text-white text-xl font-semibold">
                         {local.name}
@@ -38,4 +38,4 @@ export function LocalCard({ local }) {
             </div>
         </>
     );
-} 
+}

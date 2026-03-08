@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
@@ -37,11 +37,13 @@ export function Navbar() {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
-        setUser(user);
+        if (user) {
+            setUser(user);
+        }
     }, []);
 
     const mostrarPerfil = () => {
-        if (user == null) {
+        if (user == null || user == undefined) {
             return (
                 <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
                     <a
@@ -286,7 +288,10 @@ export function Navbar() {
                             <div className="p-4">
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
-                                        <Image src={LocalAltaIcono} alt="icono" />
+                                        <Image
+                                            src={LocalAltaIcono}
+                                            alt="icono"
+                                        />
                                     </div>
                                     <div className="flex-auto">
                                         <a
@@ -302,7 +307,10 @@ export function Navbar() {
                                 </div>
                                 <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white/5">
                                     <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-950/50 group-hover:bg-black/50">
-                                        <Image src={PlatoAltaIcono} alt="icono" />
+                                        <Image
+                                            src={PlatoAltaIcono}
+                                            alt="icono"
+                                        />
                                     </div>
                                     <div className="flex-auto">
                                         <a
@@ -332,7 +340,7 @@ export function Navbar() {
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Rutas del sabor</span>
-                            <Image                          
+                            <Image
                                 src={NavIcon}
                                 alt="Logo"
                                 className="h-8 w-auto"

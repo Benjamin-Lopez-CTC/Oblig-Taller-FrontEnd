@@ -5,7 +5,6 @@ import { postPlato } from "./../../api/api";
 import { useRouter } from "next/navigation";
 
 export const AltaPlatos = () => {
-
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [localID, setLocalID] = useState("");
@@ -28,13 +27,19 @@ export const AltaPlatos = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await postPlato(name, category, localID, city, price, description);
+        const data = await postPlato(
+            name,
+            category,
+            localID,
+            city,
+            price,
+            description,
+        );
 
         if (data.error) {
             setCampoObligatorioPH("Campo obligatorio");
             setCampoObligatorio("Campo obligatorio");
-        }
-        else {
+        } else {
             alert("Plato dado de alta con exito");
 
             setCampoObligatorioPH("");
@@ -47,16 +52,14 @@ export const AltaPlatos = () => {
             setPrice("");
             setDescription("");
         }
-    }
-
+    };
 
     return (
         <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 -top-40 -z-10 pointer-events-none"
-            >
-            </div>
+            ></div>
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-4xl font-semibold tracking-tight text-balance text-emerald-100 sm:text-5xl">
                     Alta Platos
@@ -161,11 +164,11 @@ export const AltaPlatos = () => {
                         <div className="mt-2.5">
                             <textarea
                                 id="price"
-                                name="price"                                
+                                name="price"
                                 value={description}
                                 autoComplete="price"
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 min-h-32 resize-none"                                
+                                className="block w-full rounded-md bg-mist-700 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-emerald-700 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 min-h-32 resize-none"
                             />
                         </div>
                     </div>
@@ -208,4 +211,4 @@ export const AltaPlatos = () => {
             </form>
         </div>
     );
-}
+};

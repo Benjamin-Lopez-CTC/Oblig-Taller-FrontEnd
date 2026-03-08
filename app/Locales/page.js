@@ -1,6 +1,6 @@
-'use client'
-import { Navbar } from "./../components/Navbar"
-import { LocalCard } from "./../components/LocalesCard"
+"use client";
+import { Navbar } from "./../components/Navbar";
+import { LocalCard } from "./../components/LocalesCard";
 import { Footer } from "./../components/Footer";
 
 import { useEffect, useState } from "react";
@@ -9,8 +9,6 @@ import { getLocalesFiltrados } from "./../../api/api";
 import { BusquedaLocales } from "./../components/BusquedaLocales";
 
 export default function Locales() {
-    
-
     const [locales, setLocales] = useState([]);
 
     const [query, setQuery] = useState("");
@@ -22,15 +20,22 @@ export default function Locales() {
 
     useEffect(() => {
         const mostrarLocales = async () => {
-            const data = await getLocalesFiltrados(query, type, priceRange, rating, city, zone);
+            const data = await getLocalesFiltrados(
+                query,
+                type,
+                priceRange,
+                rating,
+                city,
+                zone,
+            );
             console.log(data.items);
             setLocales(data.items);
-        }
+        };
 
         mostrarLocales();
-    }, [query, type, priceRange, rating, city, zone])
+    }, [query, type, priceRange, rating, city, zone]);
 
-    return(
+    return (
         <>
             {/* Navbar */}
 
@@ -45,7 +50,14 @@ export default function Locales() {
             </div>
 
             <div className="mx-5 max-w-2xl my-4 px-4 sm:px-6  lg:max-w-4xl lg:px-8">
-                <BusquedaLocales setQuery={setQuery} setType={setType} setPriceRange={setPriceRange} setRating={setRating} setCity={setCity} setZone={setZone} />
+                <BusquedaLocales
+                    setQuery={setQuery}
+                    setType={setType}
+                    setPriceRange={setPriceRange}
+                    setRating={setRating}
+                    setCity={setCity}
+                    setZone={setZone}
+                />
             </div>
 
             {/* Locales */}
@@ -58,16 +70,14 @@ export default function Locales() {
             <div className="w-full min-h-screen bg-mist-950">
                 <div className="max-w-7x1 mx-auto px-6 py-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-                        {
-                            locales.map((local, index) => (
-                                <LocalCard key={index} local={local} />
-                            ))
-                        }
+                        {locales.map((local, index) => (
+                            <LocalCard key={index} local={local} />
+                        ))}
                     </div>
                 </div>
             </div>
 
-            <Footer/>
+            <Footer />
         </>
     );
 }

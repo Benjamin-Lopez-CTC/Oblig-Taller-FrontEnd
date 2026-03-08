@@ -73,7 +73,7 @@ export default function Platos() {
                 </div>
             </div>
 
-            <Footer/>
+            <Footer />
         </>
     );
 }

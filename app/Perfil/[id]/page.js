@@ -30,15 +30,15 @@ export default function Perfil() {
         traerUsuario();
     }, []);
 
-        const router = useRouter();
-    
-        useEffect(() => {
-            const userLS = JSON.parse(localStorage.getItem("user"));
-    
-            if (!userLS) {
-                router.replace("/login");
-            }
-        }, []);
+    const router = useRouter();
+
+    useEffect(() => {
+        const userLS = JSON.parse(localStorage.getItem("user"));
+
+        if (!userLS) {
+            router.replace("/login");
+        }
+    }, []);
 
     return (
         <>
@@ -105,7 +105,7 @@ export default function Perfil() {
                     </div>
                 </div>
             </main>
-            <Footer/>
+            <Footer />
         </>
     );
 }

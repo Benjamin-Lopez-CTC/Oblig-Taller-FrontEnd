@@ -122,7 +122,6 @@ const DetallesPlato = () => {
                                     className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
                                 />
                                 <div>
-                                    {/* <h3 className="text-base/7 font-semibold tracking-tight text-gray-900">{review.rating}</h3> */}
                                     <Rating value={review.rating} readonly />
                                     <p className="text-sm/6 font-semibold text-emerald-500">
                                         {review.comment}

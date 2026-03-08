@@ -1,6 +1,12 @@
-export const BusquedaLocales = ({setQuery , setType , setPriceRange , setRating , setCity , setZone}) => {
-
-    return( 
+export const BusquedaLocales = ({
+    setQuery,
+    setType,
+    setPriceRange,
+    setRating,
+    setCity,
+    setZone,
+}) => {
+    return (
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
                 <label
@@ -119,5 +125,5 @@ export const BusquedaLocales = ({setQuery , setType , setPriceRange , setRating 
                 </select>
             </div>
         </div>
-    )
-}
+    );
+};
